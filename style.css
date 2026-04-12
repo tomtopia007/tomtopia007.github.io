@@ -1,0 +1,462 @@
+/* ============================================================
+   The Hedonic Primacy Project — site styles
+   Dark academic. Mobile-first. Fluid type.
+   ============================================================ */
+
+:root {
+  /* Colour tokens */
+  --bg:           #0e0e0f;
+  --bg-elevated:  #17161a;
+  --bg-subtle:    #1a1917;
+  --text:         #e8e4d8;
+  --text-muted:   #a8a49a;
+  --text-dim:     #6e6a61;
+  --accent:       #c9a961;
+  --accent-bright:#d9b875;
+  --accent-dim:   #8a7544;
+  --border:       #2a2825;
+  --border-soft:  #1f1e1c;
+
+  /* Typography */
+  --font-display: 'Cormorant Garamond', 'EB Garamond', Georgia, 'Times New Roman', serif;
+  --font-body:    'Crimson Pro', Georgia, 'Times New Roman', serif;
+
+  /* Layout */
+  --max-width:    720px;
+  --side-pad:     clamp(1.25rem, 5vw, 2.5rem);
+  --vertical-pad: clamp(3rem, 8vw, 6rem);
+
+  /* Motion */
+  --ease:         cubic-bezier(0.4, 0, 0.2, 1);
+  --transition:   200ms var(--ease);
+}
+
+/* ---------------- Reset ---------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: clamp(1.0625rem, 0.95rem + 0.4vw, 1.1875rem);
+  line-height: 1.75;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  min-height: 100vh;
+  min-height: 100dvh;
+  overflow-x: hidden;
+}
+
+img, svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+a:hover,
+a:focus-visible {
+  color: var(--accent-bright);
+}
+
+a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+/* ---------------- Layout container ---------------- */
+main {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--vertical-pad) var(--side-pad);
+  padding-bottom: clamp(3rem, 6vw, 4rem);
+}
+
+/* ---------------- Hero ---------------- */
+.hero {
+  text-align: center;
+  margin-bottom: clamp(3rem, 8vw, 5rem);
+  padding-bottom: clamp(2.5rem, 6vw, 4rem);
+  border-bottom: 1px solid var(--border);
+  animation: fadeInUp 900ms var(--ease) both;
+}
+
+.hero-mark {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  color: var(--accent);
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.5em;
+  padding-left: 0.5em;
+  line-height: 1;
+  font-family: var(--font-display);
+}
+
+.hero h1 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(2.125rem, 4vw + 1rem, 3.75rem);
+  line-height: 1.05;
+  letter-spacing: -0.015em;
+  margin-bottom: 1.25rem;
+  color: var(--text);
+}
+
+.hero .tagline {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(1.0625rem, 1vw + 0.75rem, 1.4375rem);
+  color: var(--text-muted);
+  line-height: 1.4;
+  margin-bottom: 2rem;
+  max-width: 38ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero .tagline br {
+  display: none;
+}
+
+@media (min-width: 520px) {
+  .hero .tagline br {
+    display: inline;
+  }
+}
+
+.hero .author {
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--accent);
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  margin-top: 0;
+}
+
+/* ---------------- Intro paragraph ---------------- */
+.intro {
+  margin-bottom: clamp(3rem, 8vw, 5rem);
+  animation: fadeInUp 900ms var(--ease) 150ms both;
+}
+
+.intro p {
+  color: var(--text);
+  font-size: 1em;
+  line-height: 1.8;
+}
+
+/* ---------------- Paper sections ---------------- */
+.paper {
+  margin-bottom: clamp(3.5rem, 8vw, 5rem);
+  padding-top: clamp(2.5rem, 6vw, 4rem);
+  border-top: 1px solid var(--border);
+}
+
+.paper:first-of-type {
+  animation: fadeInUp 900ms var(--ease) 300ms both;
+}
+
+.paper:nth-of-type(2) {
+  animation: fadeInUp 900ms var(--ease) 450ms both;
+}
+
+.paper-label {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1.25rem;
+  display: inline-block;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--accent-dim);
+}
+
+.paper h2 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(1.875rem, 3vw + 1rem, 2.875rem);
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  margin-bottom: 0.625rem;
+  color: var(--text);
+}
+
+.paper-subtitle {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(1.0625rem, 1vw + 0.625rem, 1.3125rem);
+  line-height: 1.4;
+  color: var(--text-muted);
+  margin-bottom: 2rem;
+  max-width: 42ch;
+}
+
+.paper-description {
+  color: var(--text);
+  margin-bottom: 2rem;
+  line-height: 1.8;
+}
+
+/* ---------------- Abstract ---------------- */
+.abstract {
+  margin: 2.5rem 0;
+  padding: clamp(1.5rem, 3vw, 2rem) clamp(1.25rem, 3vw, 2rem);
+  background: var(--bg-elevated);
+  border-left: 2px solid var(--accent);
+  border-radius: 2px;
+  position: relative;
+}
+
+.abstract h3 {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1.25rem;
+}
+
+.abstract p {
+  font-size: 0.95em;
+  line-height: 1.8;
+  color: var(--text);
+  text-align: justify;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+}
+
+@media (max-width: 520px) {
+  .abstract p {
+    text-align: left;
+    hyphens: none;
+    -webkit-hyphens: none;
+  }
+}
+
+/* ---------------- Download buttons ---------------- */
+.downloads {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 2.5rem;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
+  padding: 0.9rem 1.75rem;
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+  border: 1px solid var(--accent-dim);
+  border-radius: 2px;
+  transition: all var(--transition);
+  min-height: 48px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.button-icon {
+  font-size: 1em;
+  line-height: 1;
+  display: inline-block;
+}
+
+.button--primary {
+  background: var(--accent);
+  color: var(--bg);
+  border-color: var(--accent);
+}
+
+.button--primary:hover,
+.button--primary:focus-visible {
+  background: var(--accent-bright);
+  border-color: var(--accent-bright);
+  color: var(--bg);
+  transform: translateY(-1px);
+}
+
+.button--secondary {
+  background: transparent;
+  color: var(--text);
+  border-color: var(--border);
+}
+
+.button--secondary:hover,
+.button--secondary:focus-visible {
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateY(-1px);
+}
+
+.button:active {
+  transform: translateY(0);
+}
+
+/* Stack buttons on very narrow screens */
+@media (max-width: 440px) {
+  .downloads {
+    flex-direction: column;
+    gap: 0.625rem;
+  }
+  .button {
+    width: 100%;
+  }
+}
+
+/* ---------------- Footer ---------------- */
+footer {
+  margin-top: clamp(4rem, 10vw, 6rem);
+  padding-top: clamp(2rem, 5vw, 3rem);
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+
+.footer-rule {
+  font-size: 1.25rem;
+  color: var(--accent);
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.5em;
+  padding-left: 0.5em;
+  line-height: 1;
+  font-family: var(--font-display);
+}
+
+footer p {
+  color: var(--text-muted);
+  font-size: 0.9375rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+}
+
+footer .copyright {
+  color: var(--text-dim);
+  font-size: 0.875rem;
+  font-style: italic;
+  font-family: var(--font-display);
+  margin-top: 0.5rem;
+}
+
+footer .tiny {
+  color: var(--text-dim);
+  font-size: 0.75rem;
+  max-width: 50ch;
+  margin: 1.5rem auto 0;
+  line-height: 1.6;
+}
+
+footer a {
+  color: var(--accent);
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--transition);
+}
+
+footer a:hover,
+footer a:focus-visible {
+  border-bottom-color: var(--accent);
+}
+
+/* ---------------- Animations ---------------- */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .button:hover,
+  .button:focus-visible {
+    transform: none;
+  }
+}
+
+/* ---------------- Very small screens (≤ 360px) ---------------- */
+@media (max-width: 360px) {
+  :root {
+    --side-pad: 1.125rem;
+  }
+  .hero h1 {
+    font-size: 1.875rem;
+  }
+  .paper h2 {
+    font-size: 1.75rem;
+  }
+  .paper-label {
+    font-size: 0.6875rem;
+  }
+  .button {
+    font-size: 0.875rem;
+    padding: 0.875rem 1.25rem;
+  }
+}
+
+/* ---------------- Large screens (≥ 1200px) ---------------- */
+@media (min-width: 1200px) {
+  main {
+    padding-top: clamp(4rem, 10vh, 8rem);
+  }
+}
+
+/* ---------------- Print styles ---------------- */
+@media print {
+  body {
+    background: white;
+    color: black;
+  }
+  .button,
+  .hero-mark,
+  .footer-rule {
+    display: none;
+  }
+  .abstract {
+    background: #f5f5f5;
+    border-left-color: #666;
+  }
+}
